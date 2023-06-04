@@ -1,4 +1,4 @@
-package com.kevinlago.slackintegration.model.elements;
+package com.kevinlago.slackintegration.model.element;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
@@ -6,7 +6,7 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class SlackElement {
     @JsonManagedReference
-    private String type;
+    private final String type;
 
     public SlackElement(Type type) {
         this.type = type.toString();

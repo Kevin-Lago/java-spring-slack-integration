@@ -1,15 +1,19 @@
 package com.kevinlago.slackintegration.service;
 
 import com.kevinlago.slackintegration.model.SlackMessage;
-import com.kevinlago.slackintegration.model.blocks.SlackDividerBlock;
-import com.kevinlago.slackintegration.model.blocks.SlackImageBlock;
+import com.kevinlago.slackintegration.model.block.SlackImageBlock;
+import com.kevinlago.slackintegration.model.element.SlackButtonElement;
+import com.kevinlago.slackintegration.model.text.SlackText;
 import org.springframework.stereotype.Service;
-import org.springframework.web.multipart.MultipartFile;
+
+import java.util.logging.Logger;
 
 import static com.kevinlago.slackintegration.config.Settings.slackApp;
 
 @Service
 public class SlackService {
+    private static final Logger logger = Logger.getLogger(SlackService.class.getName());
+
     public SlackMessage sendMessage(String webHook, String message) {
         SlackMessage slackMessage = new SlackMessage();
         slackMessage.setText(message);
@@ -19,8 +23,16 @@ public class SlackService {
         return slackMessage;
     }
 
-    public void sendImage(MultipartFile multipartFile) {
-        SlackMessage slackMessage = new SlackMessage();
+//    public SlackMessage sendButton(String webHook) {
+//        SlackMessage slackMessage = new SlackMessage();
+//        slackMessage.addBlock(new SlackButtonElement());
+//    }
 
+    public SlackMessage sendImage(String webHook, SlackText title, String imageUrl, String altText) {
+        SlackMessage slackMessage = new SlackMessage();
+        slackMessage.addBlock(new SlackImageBlock(title, imageUrl, altText));
+
+        slackApp.sendMessageToWebHook(webHook, slackMessage);
+        return slackMessage;
     }
 }

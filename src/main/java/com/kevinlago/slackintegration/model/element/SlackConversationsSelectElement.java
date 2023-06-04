@@ -1,18 +1,18 @@
-package com.kevinlago.slackintegration.model.elements;
+package com.kevinlago.slackintegration.model.element;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.kevinlago.slackintegration.model.text.SlackText;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class SlackChannelsSelectElement extends SlackElement {
+public class SlackConversationsSelectElement extends SlackElement {
     @JsonProperty("placeholder")
     private SlackText placeHolder;
-    @JsonProperty("actionid")
+    @JsonProperty("action_id")
     private String actionId;
 
-    public SlackChannelsSelectElement(SlackText placeHolder, String actionId) {
-        super(Type.CHANNELS_SELECT);
+    public SlackConversationsSelectElement(SlackText placeHolder, String actionId) {
+        super(Type.CONVERSATIONS_SELECT);
         this.placeHolder = placeHolder;
         this.actionId = actionId;
     }

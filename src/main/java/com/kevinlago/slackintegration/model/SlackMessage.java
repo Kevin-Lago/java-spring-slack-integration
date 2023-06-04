@@ -1,7 +1,7 @@
 package com.kevinlago.slackintegration.model;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.kevinlago.slackintegration.model.blocks.SlackBlock;
+import com.kevinlago.slackintegration.model.block.SlackBlock;
 
 import java.util.ArrayList;
 import java.util.List;

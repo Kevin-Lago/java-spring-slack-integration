@@ -1,4 +1,4 @@
-package com.kevinlago.slackintegration.model.blocks;
+package com.kevinlago.slackintegration.model.block;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 

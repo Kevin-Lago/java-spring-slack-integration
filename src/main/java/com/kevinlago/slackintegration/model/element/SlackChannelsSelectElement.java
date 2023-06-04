@@ -1,31 +1,20 @@
-package com.kevinlago.slackintegration.model.elements;
+package com.kevinlago.slackintegration.model.element;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.kevinlago.slackintegration.model.text.SlackText;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class SlackDatePickerElement extends SlackElement {
-    @JsonProperty("initial_date")
-    private String initialDate;
+public class SlackChannelsSelectElement extends SlackElement {
     @JsonProperty("placeholder")
     private SlackText placeHolder;
-    @JsonProperty("actionId")
+    @JsonProperty("actionid")
     private String actionId;
 
-    public SlackDatePickerElement(String initialDate, SlackText placeHolder, String actionId) {
-        super(Type.DATEPICKER);
-        this.initialDate = initialDate;
+    public SlackChannelsSelectElement(SlackText placeHolder, String actionId) {
+        super(Type.CHANNELS_SELECT);
         this.placeHolder = placeHolder;
         this.actionId = actionId;
-    }
-
-    public String getInitialDate() {
-        return initialDate;
-    }
-
-    public void setInitialDate(String initialDate) {
-        this.initialDate = initialDate;
     }
 
     public SlackText getPlaceHolder() {

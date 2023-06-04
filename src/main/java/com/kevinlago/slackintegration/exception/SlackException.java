@@ -1,13 +1,6 @@
 package com.kevinlago.slackintegration.exception;
 
-import com.fasterxml.jackson.core.JsonParseException;
-import com.fasterxml.jackson.core.JsonProcessingException;
-
-import java.util.logging.Level;
 import java.util.logging.Logger;
-
-import static com.kevinlago.slackintegration.config.Settings.slackApp;
-import static com.kevinlago.slackintegration.config.Settings.mapper;
 
 public class SlackException extends RuntimeException {
     private static final Logger logger = Logger.getLogger(SlackException.class.getName());
@@ -20,7 +13,6 @@ public class SlackException extends RuntimeException {
 
     public SlackException(String message, Object object, Throwable throwable) {
         super(message);
-
         this.object = object;
         this.throwable = throwable;
     }

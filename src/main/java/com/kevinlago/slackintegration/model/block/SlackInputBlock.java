@@ -1,10 +1,11 @@
-package com.kevinlago.slackintegration.model.blocks;
+package com.kevinlago.slackintegration.model.block;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.kevinlago.slackintegration.model.elements.SlackElement;
+import com.kevinlago.slackintegration.model.element.SlackElement;
 import com.kevinlago.slackintegration.model.text.SlackText;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
@@ -35,6 +36,11 @@ public class SlackInputBlock extends SlackBlock {
 
     public void setElements(List<SlackElement> elements) {
         this.elements = elements;
+    }
+
+    public void addElement(SlackElement element) {
+        if (this.elements == null) this.elements = new ArrayList<>();
+        this.elements.add(element);
     }
 
     public SlackText getLabel() {

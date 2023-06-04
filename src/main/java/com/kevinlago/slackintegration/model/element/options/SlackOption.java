@@ -1,21 +1,18 @@
-package com.kevinlago.slackintegration.model.elements;
+package com.kevinlago.slackintegration.model.element.options;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import com.kevinlago.slackintegration.model.text.SlackText;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class SlackButtonElement extends SlackElement {
+public class SlackOption {
     private SlackText text;
     private String value;
-    @JsonProperty("action_id")
-    private String actionId;
+    private SlackText description;
 
-    public SlackButtonElement(SlackText text, String value, String actionId) {
-        super(Type.BUTTON);
+    public SlackOption(SlackText text, String value, SlackText description) {
         this.text = text;
         this.value = value;
-        this.actionId = actionId;
+        this.description = description;
     }
 
     public SlackText getText() {
@@ -34,11 +31,11 @@ public class SlackButtonElement extends SlackElement {
         this.value = value;
     }
 
-    public String getActionId() {
-        return actionId;
+    public SlackText getDescription() {
+        return description;
     }
 
-    public void setActionId(String actionId) {
-        this.actionId = actionId;
+    public void setDescription(SlackText description) {
+        this.description = description;
     }
 }
